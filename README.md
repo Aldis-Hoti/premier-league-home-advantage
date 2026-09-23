@@ -1,6 +1,6 @@
 # Is Home Advantage Still a Strategic Asset? A Premier League Analysis (2016/17–2025/26)
 
-**Business task:** Is home advantage still a strategic asset worth investing in, or has its value eroded post-pandemic — and does the answer differ by club size?
+**Business task:** Is home advantage still a strategic asset worth investing in, or has its value eroded post-pandemic, and does the answer differ by club size?
 
 **Stakeholder:** London Athletic FC, a mid-table Premier League club deciding whether to keep investing in home-crowd-dependent strategy (ticket pricing, atmosphere, scheduling) or reallocate resources.
 
@@ -21,7 +21,7 @@ Raw files contained ~130 columns, mostly bookmaker odds data not relevant to thi
 
 Each season was loaded into Google BigQuery as its own table (10 tables total), then combined into a single table using a `UNION ALL` query, adding a `Season` label to each row: see [`01_combine_seasons.sql`](01_combine_seasons.sql).
 
-Verified data completeness by checking match counts per season — every season returned exactly 380 matches, confirming no data was lost or duplicated during the combine. Schema was also confirmed correctly typed (`Date` as DATE, goal/shot counts as INTEGER, results as STRING).
+Verified data completeness by checking match counts per season. Every season returned exactly 380 matches, confirming no data was lost or duplicated during the combine. Schema was also confirmed correctly typed (`Date` as DATE, goal/shot counts as INTEGER, results as STRING).
 
 ## Analysis
 
@@ -43,7 +43,7 @@ Query: [`02_home_win_by_season.sql`](02_home_win_by_season.sql)
 
 ![Home win rate by season](home_win_by_season.png)
 
-Home win rate declined from a pre-COVID range of 45.3–49.2% to 37.9% during the crowd-free 2020/21 season — the lowest point in the dataset. It has not returned to pre-COVID levels since, suggesting a longer-term structural shift rather than a COVID-only effect.
+Home win rate declined from a pre-COVID range of 45.3–49.2% to 37.9% during the crowd-free 2020/21 season the lowest point in the dataset. It has not returned to pre-COVID levels since, suggesting a longer-term structural shift rather than a COVID-only effect.
 
 ### 2. Pre/Post-COVID Comparison
 Query: [`03_pre_post_covid.sql`](03_pre_post_covid.sql)
@@ -54,7 +54,7 @@ Query: [`03_pre_post_covid.sql`](03_pre_post_covid.sql)
 | COVID (no crowds) | 380 | 37.9% |
 | Post-COVID | 1,900 | 44.2% |
 
-Home win rate fell 9 percentage points during COVID, recovered by 6.3 points afterward — but still sits 2.7 points below the pre-COVID baseline across nearly five full seasons, pointing toward a partial structural decline rather than a short-lived anomaly.
+Home win rate fell 9 percentage points during COVID, recovered by 6.3 points afterward, but still sits 2.7 points below the pre-COVID baseline across nearly five full seasons, pointing toward a partial structural decline rather than a short-lived anomaly.
 
 ### 3. Home Advantage by Club Size
 Query: [`04_by_club_breakdown.sql`](04_by_club_breakdown.sql)
